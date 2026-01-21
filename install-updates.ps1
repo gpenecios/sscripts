@@ -8,4 +8,4 @@ $Cpath = "c:\scripts\glennp\logs"
 $LogFile = "$Cpath\$ServerName-update.log"
 
 # Install update for AzureConnector and MS Defender
-Install-WindowsUpdate -Verbose -IgnoreReboot -AcceptAll -KBArticleID 5077633,2267602 | Out-file $LogFile -Encoding UTF8
+Install-WindowsUpdate -Verbose -IgnoreReboot -AcceptAll -KBArticleID 5077633,2267602 > $LogFile
