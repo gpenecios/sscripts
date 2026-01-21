@@ -7,5 +7,5 @@ $ServerName = $env:computername
 $Cpath = "c:\scripts\glennp\logs"
 $LogFile = "$Cpath\$ServerName-update.log"
 
-# Install update for AzureConnector and MS Defender
-Install-WindowsUpdate -Verbose -IgnoreReboot -AcceptAll -KBArticleID 5077633,2267602,890830 | Out-file $LogFile -Encoding UTF8
+# Install update for AzureAgent,Malicious Software Removal Tool, MS Defender
+Get-WindowsUpdate -Verbose -install -IgnoreReboot -AcceptAll -KBArticleID 5077633,2267602,890830 | Out-file $LogFile -Encoding UTF8
