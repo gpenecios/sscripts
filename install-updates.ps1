@@ -3,7 +3,8 @@ Import-Module PSWindowsUpdate
 #Install-Module -Name PSWindowsUpdate -Force; get-windowsupdate -verbose
 
 $ServerName = $env:computername
-$Cpath = (Get-Location).Path
+#$Cpath = (Get-Location).Path
+$Cpath = "c:\scripts\glennp\logs"
 $LogFile = "$Cpath\$ServerName-update.log"
 
 # Install update for AzureConnector and MS Defender
