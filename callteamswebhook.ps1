@@ -8,7 +8,7 @@ $webhook = "https://default44467e6f462c4ea2823f7800de5434.e3.environment.api.pow
 $ServerName = $env:computername
 $LogDir = "c:\scripts\glennp\logs"
 $LogFile = "$LogDir\$ServerName-update.log"
-$bodymsg = get-content -path "$LogFile"
+$bodymsg = get-content -path "$LogFile" -Raw
 
 
 $curtime = Get-Date -Format "HH:mm:ss"
