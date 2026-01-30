@@ -39,7 +39,7 @@ if ($Major -eq 1) {
         Out-File $LogFile -Append -Encoding UTF8
 }
 elseif ($Major -eq 2) {
-    "Using Install-WindowsUpdate (v2.x)" | Out-File $LogFile -Append -Encoding UTF8
+    "Using Install-WindowsUpdate (v2.x)" | Out-File $LogFile -Encoding UTF8
 
     Install-WindowsUpdate -Verbose -IgnoreReboot -AcceptAll `
         -KBArticleID 5077633,2267602,890830 |
