@@ -21,6 +21,7 @@ Write-Output "Loaded PSWindowsUpdate version: $Major.$Minor"
 $ServerName = $env:COMPUTERNAME
 $Cpath = "C:\scripts\glennp\logs"
 $LogFile = "$Cpath\$ServerName-update.log"
+$KBArticles = "5077633,2267602,890830,KB5081461"
 
 if (-not (Test-Path $Cpath)) {
     New-Item -ItemType Directory -Path $Cpath | Out-Null
@@ -35,21 +36,21 @@ if ($Major -eq 1) {
     "Using Get-WUInstall (v1.x)" | Out-File $LogFile -Encoding UTF8
 
     Get-WUInstall -Verbose -IgnoreReboot -AcceptAll `
-        -KBArticleID 5077633,2267602,890830 |
+        -KBArticleID $KBArticles |
         Out-File $LogFile -Append -Encoding UTF8
 }
 elseif ($Major -eq 2) {
     "Using Install-WindowsUpdate (v2.x)" | Out-File $LogFile -Encoding UTF8
 
     Install-WindowsUpdate -Verbose -IgnoreReboot -AcceptAll `
-        -KBArticleID 5077633,2267602,890830 |
+        -KBArticleID $KBArticles |
         Out-File $LogFile -Append -Encoding UTF8
 }
 elseif ($Major -ge 3) {
     "Using Get-WindowsUpdate (v3.x)" | Out-File $LogFile -Append -Encoding UTF8
 
     Get-WindowsUpdate -Verbose -Install -IgnoreReboot -AcceptAll `
-        -KBArticleID 5077633,2267602,890830 |
+        -KBArticleID $KBArticles |
         Out-File $LogFile -Append -Encoding UTF8
 }
 else {
