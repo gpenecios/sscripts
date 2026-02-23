@@ -21,7 +21,7 @@ Write-Output "Loaded PSWindowsUpdate version: $Major.$Minor"
 $ServerName = $env:COMPUTERNAME
 $Cpath = "C:\scripts\glennp\logs"
 $LogFile = "$Cpath\$ServerName-update.log"
-$KBArticles = "5077633,2267602,890830,KB5081461"
+$KBArticles = "5077633,2267602,KB5081461,KB890830"
 
 if (-not (Test-Path $Cpath)) {
     New-Item -ItemType Directory -Path $Cpath | Out-Null
