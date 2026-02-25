@@ -46,14 +46,14 @@ if ($Major -eq 1) {
 elseif ($Major -eq 2) {
     "Using Install-WindowsUpdate (v2.x)" | Out-File $LogFile -Encoding UTF8
 
-    Install-WindowsUpdate -Verbose -WindowsUpdate -IgnoreReboot -AcceptAll `
+    Install-WindowsUpdate -Verbose -IgnoreReboot -AcceptAll `
         -KBArticleID $KBArticles |
         Out-File $LogFile -Append -Encoding UTF8
 }
 elseif ($Major -ge 3) {
     "Using Get-WindowsUpdate (v3.x)" | Out-File $LogFile -Append -Encoding UTF8
 
-    Get-WindowsUpdate -Verbose -WindowsUpdate -Install -IgnoreReboot -AcceptAll `
+    Get-WindowsUpdate -Verbose -Install -IgnoreReboot -AcceptAll `
         -KBArticleID $KBArticles |
         Out-File $LogFile -Append -Encoding UTF8
 }
