@@ -21,8 +21,12 @@ Write-Output "Loaded PSWindowsUpdate version: $Major.$Minor"
 $ServerName = $env:COMPUTERNAME
 $Cpath = "C:\scripts\glennp\logs"
 $LogFile = "$Cpath\$ServerName-update.log"
-$KBArticles = "5077633,2267602,KB5081461,KB890830"
-
+$KBArticles = "KB2267602,KB5081461,KB890830"
+#  *******************
+#KB2267602 	- Security Intelligence Update
+#KB5081461 	- AzureConnectedMachineAgent
+#KB890830 	- Win Malicious Software Removal
+#  *******************
 if (-not (Test-Path $Cpath)) {
     New-Item -ItemType Directory -Path $Cpath | Out-Null
 }
